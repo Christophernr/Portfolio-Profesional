@@ -1,0 +1,49 @@
+.descripcion-container{
+    padding-top: 5rem;
+    /* text-align: center; */
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.descripcion-botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 2rem; */
+}
+
+.btn-descripcion
+{
+    height: 3rem;
+    width: 13rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color: white;
+}
+
+.btn-proyectos{
+    background: linear-gradient(to right, #9333ea, #db2777);
+    transition: all 0.3s ease;
+    color: white;
+}
+.btn-proyectos:hover
+{
+    background: linear-gradient(to right, #7c3aed, #be185d);
+    /* color: white; */
+}
+
+.btn-cv{
+    border: solid .1px gray;
+
+
+}
+.span-header{
+    background: linear-gradient(to right, #7c3aed, #be185d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block; /* asegúrate que no colapse */
+}

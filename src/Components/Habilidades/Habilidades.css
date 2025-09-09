@@ -1,0 +1,95 @@
+.habilidades-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+/* contenedores */
+
+.skills-container{
+    width: 100%;
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    border: 1px solid #ccc;
+    margin-top: 3rem;
+    /* margin: 2rem; */
+    max-height: 40rem;
+}
+.skills-container h2{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.skills-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 100%; */
+    padding: 1.5rem;
+    /* background-color: red; */
+}
+.skills-list{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.div-skills-measure{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 1rem;
+    /* background-color: red; */
+}
+
+/* colores */
+.avanzado{
+    background-color: #4CAF50; /* Verde */
+}
+
+.inter{
+    background-color: #eab308; /* Amarillo */
+}
+.principiante{
+    background-color: #f87171; /* Rojo */
+}
+
+
+/* herramientas y frameworks */
+
+.tools-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tool-item{
+   height: auto;
+    background-color: #edecec;
+    border-radius: 3rem;
+    padding: .5rem 1rem;
+    margin: .2rem;
+}
+
+@media (min-width: 880px) {
+    .front-back-div{
+        display: flex;
+        justify-content: center; 
+        width:55rem;
+        gap: 20px;
+    }
+
+    .habilidades-lista{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+}

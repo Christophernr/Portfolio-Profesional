@@ -1,0 +1,50 @@
+.footer-main{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    height: 35rem;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #111827 !important;
+    /* background-color: red; */
+    
+}
+
+.div-redes *{
+    color: #9ca3af;
+    width: 1rem;
+}
+.div-nav-footer * {
+    color:#9ca3af
+}
+.div-texto *{
+    color: #9ca3af;
+}
+.footer-info{
+    text-align: left;
+    /* background-color: blue; */
+    /* width: 100%; */
+    min-width: 15rem;
+    margin: 0rem;
+    padding-left: 1rem;
+}
+
+.div-redes h2,
+.div-nav-footer h2,
+.div-texto h2 {
+    color: white;
+}
+
+
+@media (min-width: 768px) {
+    .footer-main{
+        display: flex;
+        flex-direction: row;
+        height: 15rem;
+        justify-content: space-around;
+        align-items: center;
+        min-width: 100%;
+    }
+
+}
+
