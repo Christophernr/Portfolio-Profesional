@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Portfolio-Profesional/', // ¡Importante!
+  base: '/Portfolio-Profesional/', // nombre exacto del repo
 })

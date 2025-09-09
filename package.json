@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+   "homepage": "https://Christophernr.github.io/Portfolio-Profesional/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -32,8 +33,8 @@
     "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
     "vite": "^7.0.4"
-  },
-  "homepage": "https://Christophernr.github.io/Portfolio-Profesional/"
+  }
+ 
 
 
 }
