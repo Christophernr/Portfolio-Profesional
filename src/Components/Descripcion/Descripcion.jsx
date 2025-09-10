@@ -19,7 +19,7 @@ export default function Descripcion() {
         </button>
         <button className="btn-descripcion btn-cv">
           <a
-            href="/CV_Cristhofer Narváez Rivas.pdf"
+            href="./CV_Cristhofer Narváez Rivas.pdf"
             target="_blank"
             rel="noopener noreferrer"
             
