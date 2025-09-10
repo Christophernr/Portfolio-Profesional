@@ -19,10 +19,9 @@ export default function Descripcion() {
         </button>
         <button className="btn-descripcion btn-cv">
           <a
-            href="/CV_Cristhofer Narváez Rivas.pdf"
+            href={`${import.meta.env.BASE_URL}CV_Cristhofer_Narváez_Rivas.pdf`}
             target="_blank"
             rel="noopener noreferrer"
-            
           >
             Ver CV
           </a>
