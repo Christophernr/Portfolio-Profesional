@@ -7,8 +7,7 @@ export default function Descripcion() {
         <span className="span-header">Desarrollador</span>Web Jr
       </h2>
       <p>
-        Experiencia con C#, SQL Server, Entity Framework y bases de desarrollo
-        web (HTML, CSS, JS, React).
+        Desarrollador Web Jr con habilidades en Front End y Back End; utilizando tecnologias web modernas y bases de datos. 
       </p>
 
       <div className="descripcion-botones">
