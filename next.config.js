@@ -4,20 +4,19 @@ const isGithubPages = process.env.NODE_ENV === 'production';
 const nextConfig = {
   output: 'export',
   
-  // SOLO para GitHub Pages usa rutas relativas
+  // IMPORTANTE: Para GitHub Pages, usa basePath vacío y NO uses assetPrefix
   basePath: isGithubPages ? '' : '',
-  assetPrefix: isGithubPages ? './' : '',
+  // NO uses assetPrefix con next/font
   
   images: {
     unoptimized: true,
   },
   
-  // IMPORTANTE: false para GitHub Pages
   trailingSlash: false,
   
-  // Para evitar problemas con caché
-  generateBuildId: async () => {
-    return 'build-' + Date.now();
+  // Configuración específica para fonts
+  experimental: {
+    optimizeCss: false, // Desactiva optimización CSS temporalmente
   }
 };
 
