@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🚀 PREPARANDO PARA GITHUB PAGES...');
-console.log('====================================');
+console.log('🚀 CONFIGURACIÓN COMPLETA PARA GITHUB PAGES');
+console.log('===========================================\n');
 
 const outDir = path.join(__dirname, '..', 'out');
 
@@ -13,69 +13,109 @@ if (!fs.existsSync(outDir)) {
   process.exit(1);
 }
 
-// 2. CREAR .nojekyll (ESENCIAL para carpetas que empiezan con _)
+console.log('📁 Carpeta out encontrada\n');
+
+// 2. CREAR .nojekyll (OBLIGATORIO para GitHub Pages)
 const nojekyllPath = path.join(outDir, '.nojekyll');
 fs.writeFileSync(nojekyllPath, '');
-console.log('✅ .nojekyll creado');
+console.log('✅ 1. .nojekyll creado');
 
-// 3. PROCESAR index.html
+// 3. LEER index.html
 const indexPath = path.join(outDir, 'index.html');
 if (!fs.existsSync(indexPath)) {
-  console.error('❌ ERROR: index.html no encontrado');
+  console.error('❌ ERROR: index.html no encontrado en out/');
   process.exit(1);
 }
 
 let content = fs.readFileSync(indexPath, 'utf8');
 
-console.log('🔄 Convirtiendo rutas absolutas a relativas...');
+console.log('✅ 2. index.html leído\n');
 
-// Reemplazar TODAS las rutas que empiecen con /
+// 4. CONVERTIR TODAS las rutas absolutas a relativas
+console.log('🔄 3. Convirtiendo rutas absolutas (/) a relativas (./)...');
+
+// REEMPLAZOS CRÍTICOS para GitHub Pages
 const replacements = [
-  // Rutas de CSS y JS de Next.js
-  [/(href|src)="\/_next\//g, '$1="./_next/'],
-  // Rutas de assets
-  [/(href|src)="\/assets\//g, '$1="./assets/'],
-  // Rutas genéricas que empiezan con /
-  [/(href|src)="\/([^"']*)"/g, '$1="./$2"'],
-  // Rutas en style attributes (menos común)
-  [/(url\()\/([^)]*)\)/g, '$1./$2)'],
+  // 1. CSS de Next.js
+  { desc: 'CSS de Next.js', pattern: /href="\/(_next\/static\/css\/[^"]*\.css)"/g, replacement: 'href="./$1"' },
+  
+  // 2. JavaScript de Next.js
+  { desc: 'JavaScript de Next.js', pattern: /src="\/(_next\/static\/[^"]*\.js)"/g, replacement: 'src="./$1"' },
+  
+  // 3. Webpack chunks
+  { desc: 'Webpack chunks', pattern: /src="\/(_next\/static\/chunks\/[^"]*)"/g, replacement: 'src="./$1"' },
+  
+  // 4. Assets (videos, PDFs, etc.)
+  { desc: 'Assets (videos/PDFs)', pattern: /(href|src)="\/(assets\/[^"]*)"/g, replacement: '$1="./$2"' },
+  
+  // 5. Rutas generales que empiezan con / (FALLBACK GENERAL)
+  { desc: 'Rutas generales', pattern: /(href|src)="\/([^"#?][^"]*)"/g, replacement: '$1="./$2"' },
+  
+  // 6. URL en scripts (menos común)
+  { desc: 'URLs en scripts', pattern: /(self\.__next_f\.push\(\[1,"[^"]*)"\/([^"]*)"/g, replacement: '$1"./$2"' },
 ];
 
 let totalReplacements = 0;
-replacements.forEach(([pattern, replacement], index) => {
+
+replacements.forEach(({ desc, pattern, replacement }) => {
   const matches = content.match(pattern);
   if (matches) {
     totalReplacements += matches.length;
     content = content.replace(pattern, replacement);
+    console.log(`   ↪ ${desc}: ${matches.length} reemplazos`);
   }
 });
 
-console.log(`   ↪ ${totalReplacements} rutas convertidas`);
+console.log(`\n✅ Total: ${totalReplacements} rutas convertidas\n`);
 
-// 4. GUARDAR index.html corregido
+// 5. GUARDAR index.html corregido
 fs.writeFileSync(indexPath, content);
+console.log('✅ 4. index.html guardado con rutas relativas');
 
-// 5. CREAR 404.html (copia exacta de index.html)
+// 6. CREAR 404.html (IMPORTANTE para SPA en GitHub Pages)
 const notFoundPath = path.join(outDir, '404.html');
 fs.writeFileSync(notFoundPath, content);
-console.log('✅ 404.html creado (SPA routing)');
+console.log('✅ 5. 404.html creado (para SPA routing)');
 
-// 6. VERIFICAR estructura final
-console.log('\n📁 ESTRUCTURA FINAL:');
-const items = fs.readdirSync(outDir, { withFileTypes: true });
-items.forEach(item => {
-  const icon = item.isDirectory() ? '📁' : '📄';
-  console.log(`   ${icon} ${item.name}`);
-  
-  // Si es la carpeta _next, mostrar su contenido
-  if (item.isDirectory() && item.name === '_next') {
-    const nextItems = fs.readdirSync(path.join(outDir, '_next'), { withFileTypes: true });
-    nextItems.forEach(nextItem => {
-      console.log(`     📁 ${nextItem.name}`);
-    });
-  }
-});
+// 7. VERIFICAR que los cambios fueron aplicados
+console.log('\n🔍 6. VERIFICACIÓN FINAL:');
+console.log('-------------------------');
 
-console.log('\n🎉 ¡PREPARACIÓN COMPLETADA!');
-console.log('👉 Para desplegar ejecuta: npm run deploy');
-console.log('👉 O usa: npm run full-deploy (para todo en uno)');
+// Verificar primeras rutas CSS
+const firstCssMatch = content.match(/href="\.\/_next\/static\/css\/[^"]*\.css"/);
+if (firstCssMatch) {
+  console.log(`✅ CSS: ${firstCssMatch[0].substring(0, 60)}...`);
+} else {
+  console.log('⚠️  No se encontraron rutas CSS relativas');
+}
+
+// Verificar primeras rutas JS
+const firstJsMatch = content.match(/src="\.\/_next\/static\/[^"]*\.js"/);
+if (firstJsMatch) {
+  console.log(`✅ JS: ${firstJsMatch[0].substring(0, 60)}...`);
+} else {
+  console.log('⚠️  No se encontraron rutas JS relativas');
+}
+
+// 8. VER ESTRUCTURA DE ARCHIVOS
+console.log('\n📂 7. ESTRUCTURA DE out/:');
+console.log('------------------------');
+
+const listTopLevel = (dir, prefix = '') => {
+  const items = fs.readdirSync(dir, { withFileTypes: true });
+  items.forEach(item => {
+    const icon = item.isDirectory() ? '📁' : '📄';
+    const name = item.name === '.nojekyll' ? '.nojekyll (oculto)' : item.name;
+    console.log(`${prefix}${icon} ${name}`);
+  });
+};
+
+listTopLevel(outDir);
+
+console.log('\n🎉 8. ¡CONFIGURACIÓN COMPLETADA!');
+console.log('================================');
+console.log('\n📋 PASOS SIGUIENTES:');
+console.log('   1. Verifica que las rutas sean relativas (./_next/...)');
+console.log('   2. Ejecuta: npm run deploy');
+console.log('   3. Visita: https://christophernr.github.io/Portfolio-Profesional/');
+console.log('\n⚠️  NOTA: Si hay errores 404, revisa que .nojekyll esté en la raíz de gh-pages');
