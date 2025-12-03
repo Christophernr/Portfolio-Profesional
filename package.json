@@ -2,7 +2,7 @@
   "name": "next-app-template",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://Christophernr.github.io/Portfolio-Profesional",
+  "homepage": "https://Christophernr.github.io/Portfolio-Profesional/",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -71,6 +71,7 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@eslint/compat": "^2.0.0",
     "@next/eslint-plugin-next": "15.3.4",
     "@react-types/shared": "3.32.1",
     "@types/node": "20.5.7",

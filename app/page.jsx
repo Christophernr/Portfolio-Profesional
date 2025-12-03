@@ -1,6 +1,6 @@
 import Header from "@/components/Header/Header";
 import Descripcion from "@/components/Descripcion/Descripcion";
-import Redes from "@/components/Redes/Redes";
+import Redes from "@/components/Redes/Redes.jsx";
 import Habilidades from "@/components/Habilidades/Habilidades";
 import Proyectos from "@/components/Proyectos/Proyectos";
 import Contacto from "@/components/Contacto/Contacto";

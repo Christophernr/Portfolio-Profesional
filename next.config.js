@@ -2,6 +2,7 @@
 const nextConfig = {
   output: "export",
   basePath: "/Portfolio-Profesional", // ← IMPORTANTE: mismo nombre que tu repo
+  assetPrefix: '/Portfolio-Profesional/',
   images: {
     unoptimized: true,
   },
