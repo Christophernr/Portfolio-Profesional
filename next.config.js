@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '',  // ← DEBE estar VACÍO para /docs
+  basePath: '/Portfolio-Profesional',  // ← AÑADE ESTO
   images: {
     unoptimized: true,
   },
