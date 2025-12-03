@@ -1,13 +1,22 @@
+/* Montserrat - Ya está cargado en layout.jsx */
+/* No necesitamos @import aquí */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-montserrat: 'Montserrat', sans-serif;
+@layer base {
+  :root {
+    --font-montserrat: 'Montserrat', sans-serif;
+  }
+  
+  html {
+    font-family: var(--font-montserrat), system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    @apply font-montserrat;
+  }
 }
 
-body {
-  font-family: var(--font-montserrat), system-ui, -apple-system, sans-serif;
-}
-
-/* Resto de tus estilos... */
+/* Tailwind utilidades personalizadas si las necesitas */

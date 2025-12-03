@@ -4,14 +4,17 @@
   "private": true,
   "homepage": "https://Christophernr.github.io/Portfolio-Profesional/",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --fix",
-    "clean": "rm -rf .next out && echo '✅ Carpetas limpiadas'",
-    "predeploy": "npm run clean && npm run build && node scripts/deploy-setup.js",
-    "deploy": "gh-pages -d out -t",
-    "deploy:force": "gh-pages -d out --force"
+    "lint": "next lint",
+    "clean": "rm -rf .next out && echo '🚮 Carpetas .next y out eliminadas'",
+    "prepare:github": "node scripts/prepare-github.js",
+    "predeploy": "npm run clean && npm run build && npm run prepare:github",
+    "deploy": "gh-pages -d out",
+    "deploy:force": "gh-pages -d out --force",
+    "full-deploy": "npm run predeploy && npm run deploy",
+    "test:build": "npm run clean && npm run build && echo '✅ Build exitoso'"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
