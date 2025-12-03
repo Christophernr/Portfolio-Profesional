@@ -8,8 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "clean": "rm -rf .next out && echo '✅ Carpetas limpiadas'",
+    "predeploy": "npm run clean && npm run build && node scripts/deploy-setup.js",
+    "deploy": "gh-pages -d out -t",
+    "deploy:force": "gh-pages -d out --force"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

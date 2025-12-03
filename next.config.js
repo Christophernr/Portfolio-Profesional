@@ -1,14 +1,24 @@
-// next.config.js - DEBE QUEDAR ASÍ:
 /** @type {import('next').NextConfig} */
+const isGithubPages = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
-  basePath: '/Portfolio-Profesional',  // ← Con "s"
+  
+  // SOLO para GitHub Pages usa rutas relativas
+  basePath: isGithubPages ? '' : '',
+  assetPrefix: isGithubPages ? './' : '',
+  
   images: {
     unoptimized: true,
   },
-  trailingSlash: true,
-  // AÑADE ESTO también:
-  assetPrefix: '/Portfolio-Profesional',
-};  // HASTA AQUÍ
+  
+  // IMPORTANTE: false para GitHub Pages
+  trailingSlash: false,
+  
+  // Para evitar problemas con caché
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
+  }
+};
 
 module.exports = nextConfig;
