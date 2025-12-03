@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "clean": "rimraf .next out && echo '🚮 Carpetas .next y out eliminadas'",
-    "prepare:github": "node scripts/prepare-github.js",
+    "prepare:github": "node scripts/deploy-setup.js",
     "predeploy": "npm run clean && npm run build && npm run prepare:github",
     "deploy": "gh-pages -d out",
     "deploy:force": "gh-pages -d out --force",
