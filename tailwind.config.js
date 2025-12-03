@@ -1,4 +1,4 @@
-import {heroui} from "@heroui/theme"
+const { heroui } = require("@heroui/theme");
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -10,8 +10,6 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        mono: ["var(--font-mono)"],
         montserrat: ["var(--font-montserrat)", "sans-serif"],
       },
     },

@@ -12,8 +12,8 @@ const montserrat = Montserrat({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className={montserrat.variable}>
+    <html lang="es" suppressHydrationWarning className={montserrat.variable}>
+      <body className="font-montserrat">
         <NextThemesProvider attribute="class" defaultTheme="light">
           <HeroUIProvider>
             {children}

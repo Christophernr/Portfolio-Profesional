@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/Portfolio-Profesional", // ← IMPORTANTE: mismo nombre que tu repo
-  assetPrefix: '/Portfolio-Profesional/',
+  basePath: process.env.NODE_ENV === 'production' ? '/Portfolio-Profesional' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Portfolio-Profesional/' : '',
   images: {
     unoptimized: true,
   },
