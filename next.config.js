@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  basePath: process.env.NODE_ENV === 'production' ? '/Portfolio-Profesional' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/Portfolio-Profesional/' : '',
+  output: 'export',
+  basePath: '/Portfolio-Profesional',
+  // Asegúrate de NO tener assetPrefix
   images: {
     unoptimized: true,
   },
