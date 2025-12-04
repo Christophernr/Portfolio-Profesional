@@ -48,10 +48,6 @@ export default function Header() {
       height="5rem"
     >
       <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
-          className="sm:hidden text-2xl text-[#2d3e50]"
-        />
         <NavbarBrand>
           <h1 className="font-montserrat text-xl font-semibold text-[#2d3e50]">
             Portafolio Web
@@ -73,20 +69,7 @@ export default function Header() {
         ))}
       </NavbarContent>
 
-      <NavbarMenu className="bg-white pt-6">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item.name}-${index}`}>
-            <Link
-              href={item.href}
-              className="w-full font-montserrat text-[#2d3e50] text-lg py-2"
-              size="lg"
-              onClick={handleMenuItemClick}
-            >
-              {item.name}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
+      {/* Menú responsive eliminado, solo navbar de escritorio */}
     </Navbar>
   );
 }

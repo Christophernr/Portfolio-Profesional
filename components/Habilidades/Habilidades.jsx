@@ -19,8 +19,8 @@ export default function Habilidades() {
           Tecnologías y herramientas que domino para crear soluciones completas
         </p>
 
-        <div className="flex flex-col items-center">
-          <div className="flex flex-col lg:flex-row justify-center w-full lg:w-[55rem] gap-5 mt-12">
+        <div className="flex flex-col items-center w-full">
+          <div className="flex flex-col items-center justify-center w-full gap-5 mt-12 lg:flex-row lg:items-start lg:justify-center lg:w-[55rem]">
             <FrontEnd
               skillFront1={DataHabilidades[0].skillFront1}
               skillFront2={DataHabilidades[0].skillFront2}
@@ -40,20 +40,19 @@ export default function Habilidades() {
               level2={DataHabilidades[3].level2}
               level3={DataHabilidades[3].level3}
             />
+            <Herramientas
+              skillTools1={DataHabilidades[2].skillTools1}
+              skillTools2={DataHabilidades[2].skillTools2}
+              skillTools3={DataHabilidades[2].skillTools3}
+              skillTools4={DataHabilidades[2].skillTools4}
+              skillTools5={DataHabilidades[2].skillTools5}
+              skillTools6={DataHabilidades[2].skillTools6}
+              skillTools7={DataHabilidades[2].skillTools7}
+              skillTools8={DataHabilidades[2].skillTools8}
+              skillTools9={DataHabilidades[2].skillTools9}
+              // skillTools10={DataHabilidades[2].skillTools10}
+            />
           </div>
-
-          <Herramientas
-            skillTools1={DataHabilidades[2].skillTools1}
-            skillTools2={DataHabilidades[2].skillTools2}
-            skillTools3={DataHabilidades[2].skillTools3}
-            skillTools4={DataHabilidades[2].skillTools4}
-            skillTools5={DataHabilidades[2].skillTools5}
-            skillTools6={DataHabilidades[2].skillTools6}
-            skillTools7={DataHabilidades[2].skillTools7}
-            skillTools8={DataHabilidades[2].skillTools8}
-            skillTools9={DataHabilidades[2].skillTools9}
-            // skillTools10={DataHabilidades[2].skillTools10}
-          />
         </div>
       </div>
     </section>
