@@ -19,39 +19,49 @@ export default function Habilidades() {
           Tecnologías y herramientas que domino para crear soluciones completas
         </p>
 
-        <div className="flex flex-col items-center w-full">
-          <div className="flex flex-col items-center justify-center w-full gap-5 mt-12 lg:flex-row lg:items-start lg:justify-center lg:w-[55rem]">
-            <FrontEnd
-              skillFront1={DataHabilidades[0].skillFront1}
-              skillFront2={DataHabilidades[0].skillFront2}
-              skillFront3={DataHabilidades[0].skillFront3}
-              skillFront4={DataHabilidades[0].skillFront4}
-              skillFront5={DataHabilidades[0].skillFront5}
-              skillFront6={DataHabilidades[0].skillFront6}
-              level1={DataHabilidades[3].level1}
-              level2={DataHabilidades[3].level2}
-              level3={DataHabilidades[3].level3}
-            />
-            <BackEnd
-              skillBack1={DataHabilidades[1].skillBack1}
-              skillBack2={DataHabilidades[1].skillBack2}
-              skillBack3={DataHabilidades[1].skillBack3}
-              skillBack4={DataHabilidades[1].skillBack4}
-              level2={DataHabilidades[3].level2}
-              level3={DataHabilidades[3].level3}
-            />
-            <Herramientas
-              skillTools1={DataHabilidades[2].skillTools1}
-              skillTools2={DataHabilidades[2].skillTools2}
-              skillTools3={DataHabilidades[2].skillTools3}
-              skillTools4={DataHabilidades[2].skillTools4}
-              skillTools5={DataHabilidades[2].skillTools5}
-              skillTools6={DataHabilidades[2].skillTools6}
-              skillTools7={DataHabilidades[2].skillTools7}
-              skillTools8={DataHabilidades[2].skillTools8}
-              skillTools9={DataHabilidades[2].skillTools9}
-              // skillTools10={DataHabilidades[2].skillTools10}
-            />
+        <div className="flex w-full justify-center">
+          <div className="flex flex-col w-full items-center justify-center gap-5 mt-12 lg:w-[55rem]">
+            {/* Primera fila: FrontEnd + BackEnd */}
+            <div className="flex flex-col w-full items-center gap-5 lg:flex-row lg:justify-center lg:items-stretch">
+              <FrontEnd
+                className="w-full h-full"
+                skillFront1={DataHabilidades[0].skillFront1}
+                skillFront2={DataHabilidades[0].skillFront2}
+                skillFront3={DataHabilidades[0].skillFront3}
+                skillFront4={DataHabilidades[0].skillFront4}
+                skillFront5={DataHabilidades[0].skillFront5}
+                skillFront6={DataHabilidades[0].skillFront6}
+                level1={DataHabilidades[3].level1}
+                level2={DataHabilidades[3].level2}
+                level3={DataHabilidades[3].level3}
+              />
+
+              <BackEnd
+                className="w-full h-full"
+                skillBack1={DataHabilidades[1].skillBack1}
+                skillBack2={DataHabilidades[1].skillBack2}
+                skillBack3={DataHabilidades[1].skillBack3}
+                skillBack4={DataHabilidades[1].skillBack4}
+                level2={DataHabilidades[3].level2}
+                level3={DataHabilidades[3].level3}
+              />
+            </div>
+
+            {/* Segunda fila: Herramientas */}
+            <div className="flex w-full justify-center lg:items-stretch">
+              <Herramientas
+                className="w-full h-full"
+                skillTools1={DataHabilidades[2].skillTools1}
+                skillTools2={DataHabilidades[2].skillTools2}
+                skillTools3={DataHabilidades[2].skillTools3}
+                skillTools4={DataHabilidades[2].skillTools4}
+                skillTools5={DataHabilidades[2].skillTools5}
+                skillTools6={DataHabilidades[2].skillTools6}
+                skillTools7={DataHabilidades[2].skillTools7}
+                skillTools8={DataHabilidades[2].skillTools8}
+                skillTools9={DataHabilidades[2].skillTools9}
+              />
+            </div>
           </div>
         </div>
       </div>

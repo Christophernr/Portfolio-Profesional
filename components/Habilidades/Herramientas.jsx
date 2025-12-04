@@ -22,12 +22,12 @@ export default function Herramientas({
     skillTools6,
     skillTools7,
     skillTools8,
-    skillTools9,
+    // skillTools9,
   ];
 
   return (
-    <Card className="w-full max-w-[20rem] mt-12">
-      <CardBody className="flex flex-col items-center p-4">
+    <Card className="w-full max-w-[20rem] min-h-[32rem] flex flex-col items-center mt-12">
+      <CardBody className="flex flex-col h-full items-center p-4">
         <h2 className="text-center text-2xl mb-4 mt-2">
           Herramientas y Tecnologías
         </h2>
@@ -35,7 +35,7 @@ export default function Herramientas({
           {tools.map((tool, index) => (
             <Chip
               key={index}
-              className="h-auto bg-[#edecec] rounded-[3rem] px-4 py-2 m-1"
+              className="h-auto bg-[#edecec] rounded-[3rem] px-6 py-4 m-1"
             >
               {tool}
             </Chip>
